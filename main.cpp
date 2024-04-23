@@ -1,23 +1,57 @@
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
 int main()
-{
-    double DistanceFt,DistanceInches,HeightInches,Angle;
-    cout<<"Enter the height of your eye in inches:";
-    cin>>HeightInches;
-    cout<<"Enter the distance from the tree in inches:";
-    cin>>DistanceInches;
-    cout<<"Enter the distance from the tree in feet:";
-    cin>>DistanceFt;
-    cout<<"Enter the angle in degrees:";
-    cin>>Angle;
+{int num1,num2,result,choice;
+char again;
+ do{
+  cout<<"======================"<<endl;
+  cout<<"MENU"<<endl;
+ cout<<"======================"<<endl;
+  cout<<"1.Add"<<endl;
+  cout<<"2.Sbtract"<<endl;
+  cout<<"3.Multiply"<<endl;
+  cout<<"4.Divide"<<endl;
+  cout<<"5.Modulus"<<endl;
+  cout<<"======================"<<endl;
+  cout<<"Enter your choice(1-5):";
+  cin>>choice;
+  cout<<"Enter integer number 1:";
+  cin>>num1;
+  cout<<"Enter integer number 2:";
+  cin>>num2;
 
-    double TotalDistance=DistanceFt * 12 + DistanceInches;
-    double Radians=Angle * M_PI/180.0;
-    double HeightFeet=(HeightInches/12.0)+(TotalDistance * tan(Radians))/12.0;
+  switch(choice){
+      case 1:
+    result=num1+num2;
+    cout<<"Result:"<<result<<endl;
+    break;
+     case 2:
+    result=num1-num2;
+    cout<<"Result:"<<result<<endl;
+    break;
+      case 3:
+    result=num1*num2;
+    cout<<"Result:"<<result<<endl;
+    break;
+      case 4:
+        if(num2==0){
+    cout<<"The second integer is zero,divide by zero."<<endl;
+        }else{
+             result=num1/num2;
+             cout<<"Result:"<<result<<endl;
+        }
+        break;
+      case 5:
+        result=num1%num2;
+        cout<<"Result:"<<result<<endl;
+        break;
+      default:
+        cout<<"Invalid choice"<<endl;
+  } cout<<"Press y or Y to continue:";
+  cin>>again;
 
-    cout<<"Height of the tree is "<<HeightFeet <<" feet";
-    return 0;
+}while(again=='y' || again=='Y');
+return 0;
 }
